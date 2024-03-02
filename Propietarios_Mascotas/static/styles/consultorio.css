@@ -6,10 +6,231 @@
     margin-top: 65px;
     background-color: rgb(255, 255, 255);
 
+    .div__head{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
     .container{    
         height: 90%;
         width: 98%;
         background-color: var(--neutral--300);
         border-radius: 1rem;
+        padding: 1.25rem;
+
+        *{
+            padding: 0rem;
+            font-family: "Poppins", sans-serif;
+        }
+             
+        
+        
+        /* Estilo para ocultar las flechas en campos de tipo number */
+        input[type="number"]::-webkit-inner-spin-button,
+        input[type="number"]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            appearance: none;
+            margin: 0;
+        }
+        .window-background{
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            backdrop-filter: blur(.25rem);
+            background-color: rgba(255, 255, 255, 0.3);
+            z-index: 1;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        .window-container{
+            position: relative;
+            background-color: #ffff;
+            width: 43.75rem;
+            height: auto;
+            padding: 1.5rem;
+            border-radius: .5rem;
+            animation-name: modal;
+            animation-duration: .5s;
+            box-shadow: 0 .3125rem .9375rem -0.3125rem rgba(0,0,0,.4);
+            z-index: 10;
+        }
+        .main_propietario{
+            background-color:#F0F0F0;
+            width: 56.25rem;
+            position: fixed;
+            top: 50%; 
+            left: 50%; 
+            transform: translate(-50%, -50%);
+            padding: 1.5625rem;
+            border-radius: .9375rem;
+            .main__form{
+                width: 56.25rem;
+                max-width: 56.25rem;   
+                min-width: none;
+                height: 28.125rem;
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
+                grid-template-rows:  1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+                gap: .625rem; /* Espacio entre las columnas */
+                padding: 1.25rem;
+                grid-row-gap: .3125rem; 
+                
+                .main__div{
+                    display: flex;
+                    flex-direction: column;
+        
+                    .div__input{
+                        width:80%;
+                        padding: .3125rem .1875rem;
+                        border-radius: .4375rem;
+                        border: .0938rem #000 solid ;
+                        margin-top: .3125rem;
+                    }
+        
+                    .div__input:focus{
+                        border: .125rem #4A3AFF solid ;
+                        box-shadow: 0 0 .3125rem #4A3AFF;
+                        outline: none;
+                    }
+        
+        
+                    .dir{
+                        width: 93%;
+                    }
+                
+                }
+                .completo{
+                    grid-column: 1/ span 3;
+                    grid-row: 3;
+                }
+        
+                .separador__container{
+                    grid-column: 1/ span 3;
+                    grid-row: 5;
+                    p{
+                        font-size: 1.125rem;
+                    }
+                    .separador {
+                        border: none;
+                        height: .0938rem;
+                        width: 49.375rem ;
+                        background-color: #4A3AFF;
+                    } 
+                }
+        
+                .titulo{
+                    grid-column: 1 / span 3;
+                    grid-row: 1;
+                    p {
+                        font-size:  1.125rem;
+                    }
+                    .separador {
+                        border: none;
+                        height: .0625rem;
+                        width: 49.375rem ;
+                        background-color: #4A3AFF;
+                    }   
+                }
+        
+                .pro{
+                    grid-row: 4;
+                }
+        
+                .res{
+                    grid-row: 6;
+                }
+        
+            }
+        
+            .main__div-btn{
+               grid-column: 3;
+               grid-row: 7;
+               margin-left: 5.9375rem;
+               margin-top: .4375rem;
+                .div__btn{
+                    padding: .3125rem;
+                    border-radius: .3125rem;
+                    border: .0625rem #cbcbcb solid;
+                    width: 4.6875rem;
+                    height: 2.1875rem;
+                    background-color: #4A3AFF;
+                    color: #ffff;
+                    cursor: pointer;
+                }
+        
+                .div__btn:hover{
+                    box-shadow: 0 0 .3125rem #4A3AFF;
+                    border: .0625rem #4A3AFF solid;
+                }
+                
+            }
+        
+        }
+        
+        .div__btn{
+            padding: .3125rem;
+            border-radius: .3125rem;
+            border: .0625rem #cbcbcb solid;
+            width: 7.5rem;
+            height: 3.125rem;
+            background-color: #4A3AFF;
+            color: #ffff;
+            cursor: pointer;
+        }
+        
+        .confirmar{
+            width: 5rem;
+            height: 1.875rem;
+        }
+        
+        .div__btn:hover{
+            box-shadow: 0 0 .3125rem #4A3AFF;
+            border: .0625rem #4A3AFF solid;
+        }
+        
+        @keyframes modal {
+            from{
+                transform: translateY(50vh);
+            }
+            to{
+                transform: translateY(0);
+            }
+        }
+        
+        .close{
+            transition: transform 1s cubic-bezier(0, -0.42, 1, -0.41);
+            transform: translateY(60vh);
+        }
+        
+        
+        /* Estilos para la ventana modal de confirmacion*/
+        .modal {
+            display: none; /* Oculta la ventana modal por defecto */
+            position: fixed; 
+            z-index: 1; 
+            left: 0;
+            top: 0;
+            width: 100%; 
+            height: 100%; 
+            overflow: auto; 
+            background-color: rgba(0,0,0,0.5);
+          }
+          
+          .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 1.25rem;
+            border: .0625rem solid #888;
+            border-radius: .625rem;
+            width: 30%;
+            text-align: center;
+          }
+          
     }
 }
