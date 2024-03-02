@@ -1,0 +1,44 @@
+{% extends "layouts/base.html" %}
+{% load static %}
+
+{% block title %}Inicia Sesión{% endblock title %}
+
+{% block styles %}
+<link rel="stylesheet" href="{%  static 'styles/login.css' %}">
+{% endblock styles %}
+
+{% block content %} 
+<div class="div__container">
+    <div class="div_logo">
+        <img class="logo" src="{%  static 'assets/logoBlanco.svg' %}" alt="Logo">
+    </div>
+    <div class="div_formulario"> 
+            
+        <div class="form__div">
+            <h1>¡Bienvenido de nuevo!</h1>
+        </div>
+
+        <form action="#">
+            <div class="form__div">
+                <label class="form__label" for="usuario">usuario</label>
+                <br>
+                <input class="form__input" type="email" id="usuario">
+            </div>
+            
+            <div class="form__div">
+                <label class="form__label" for="clave">Contraseña</label>
+                <br>
+                <input class="form__input" type="password" id="clave">
+            </div>
+
+            <!--botones-->
+            <div class="div__containerBtn">
+                <button class="div__button" type="submit">Ingresar <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgb(255, 255, 255);">
+                    <path d="m11.293 17.293 1.414 1.414L19.414 12l-6.707-6.707-1.414 1.414L15.586 11H6v2h9.586z"></path>
+                    </svg>  
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock content %}

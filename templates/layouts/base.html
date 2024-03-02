@@ -1,0 +1,32 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+     {% comment "" %} -------------- etiquetas meta -------------------{% endcomment %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {% comment "" %} --------------  titulo de cada pagina   ---------{% endcomment %}
+    <title>{% block title %}{% endblock title %}  </title>
+
+    {% comment "" %} ---------------------  estilos -- ------ ----------------------{% endcomment %}
+    <link rel="stylesheet" href="{% static "styles/login.css" %}}">
+    {% block styles %}{% endblock styles %}
+</head>
+<body>
+
+    {% block content %}
+     {% comment "" %}
+        aqui va todo el contenido de la cada una de las paginas que se extienden de este layout
+     {% endcomment %}
+    {% endblock content %}
+
+    <script src="https://kit.fontawesome.com/6aaa98cece.js" crossorigin="anonymous"></script>
+    
+    {% block scripts %}
+        
+    {% endblock scripts %}
+
+</body>
+</html>

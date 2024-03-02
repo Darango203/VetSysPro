@@ -1,0 +1,50 @@
+{% load static %}
+<nav class="nav">
+    <div class="nav__container">
+        <div class="nav__title">
+        </div>
+        <div class="user__container">
+            <div>
+                <i class="fa-solid fa-bell"></i>
+            </div>
+            <div>
+                <i class="fa-solid fa-envelope"></i>
+            </div>
+            <div class="user__img--container">
+                <img class="user__img" src="{%  static 'assets/fotojpg.jpg' %}" alt="foto">
+            </div>
+            <div class="user__details">
+                <h3 class="user__name">Joaquin Delgao</h3>
+                <h6 class="user__role" >Admin</h6>
+            </div>
+            <div>
+                <i class="fa-solid fa-chevron-down"></i>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<aside class="aside">
+    <header class="aside__header">
+        <img class="header__img" src="{%  static 'assets/logo.svg' %}" alt="logo">
+    </header>
+    <nav class="aside__nav">
+        <!-- Contenido del menú de navegación -->
+        <a  class="nav__a boton selected"  href="#">
+            <i class="fa-solid fa-paw"></i>
+            <h3 class="nav__h3">Consultorio</h3>
+        </a>
+        <a  class="nav__a boton" href="#">
+            <i class="fa-regular fa-calendar-days"></i>
+            <h3 class="nav__h3" >agenda</h3>
+        </a>
+        <a  class="nav__a boton" href="#">
+            <i class="fa-solid fa-chart-simple"></i>
+            <h3 class="nav__h3" >Reportes</h3>
+        </a>
+        <a  class="nav__a boton" href="#">
+            <i class="fa-solid fa-users"></i>
+            <h3 class="nav__h3">Usuarios</h3> 
+        </a>
+    </nav>
+</aside>
