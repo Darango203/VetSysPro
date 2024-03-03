@@ -32,7 +32,6 @@ def Perfil_Propietario(request, documento):
 
 def Registrar_Mascota(request):
     
-    propietarios = Propietario.objects.all()
     estados = EstadoReproductivo.objects.all()
     
     idMascota = request.POST.get('txtIdMascota')
@@ -59,10 +58,13 @@ def Registrar_Mascota(request):
     propietario = Propietario.objects.get(pk=propietario)
     estados = EstadoReproductivo.objects.get(pk=Estados)
 
-   
     mascota = Mascota.objects.create(idMascota=idMascota, foto=foto, nombre=nombre, especie=especie, raza=raza, sexo=sexo, color=color, edad=edad, meses=meses, fechaNacimiento=fechaNacimiento, peso=peso, rh=rh, personalidad=personalidad, alimentacion=alimentacion, cantidadAlimento=cantidadAlimento, frecuenciaAlimentacion=frecuenciaAlimentacion, frecuenciaBano=frecuenciaBano, antecedentesClinicos=antecedentesClinicos, propietario=propietario, EstadoReproductivo=estados)
+    
+
+   
     return render(request, 'consultorio.html', {'propietario':propietario , 'estados': estados} )
 
-def listar_mascotas(request):
-    mascotas = Mascota.objects.all()
-    return render(request, 'consultorio.html', {'mascotas':mascotas})
+def eliminar_propietario(request, documento):
+    propietario = Propietario.objects.get(documento=documento)
+    propietario.delete()
+    return redirect('listar_propietarios')

@@ -7,5 +7,6 @@ urlpatterns = [
     path('registrar_propietario/', views.registrar_propietario),
     path('Perfil_propietario/<int:documento>/', views.Perfil_Propietario),
     path('registrar_mascota/', views.Registrar_Mascota),
+    path('eliminar_propietario/<int:documento>/', views.eliminar_propietario, name='eliminar_propietario'),
 ]
 

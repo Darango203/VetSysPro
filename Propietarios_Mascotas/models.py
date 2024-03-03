@@ -26,7 +26,7 @@ class Mascota (models.Model):
     color = models.CharField(max_length=20)
     edad = models.IntegerField()
     meses = models.IntegerField()
-    fechaNacimiento = models.DateField()
+    fechaNacimiento = models.DateField( null=True)
     peso = models.DecimalField(max_digits=5, decimal_places=2)
     rh = models.CharField(max_length=3)
     personalidad = models.CharField(max_length=100)

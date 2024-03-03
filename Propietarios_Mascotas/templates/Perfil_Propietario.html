@@ -19,53 +19,54 @@
         <div class="window-background" id="window-background">
             <div class="window-container" id="window-container">
                 <main class="main__mascota">
-                    <form id="formularioMascota" class="main__form" action="#">
+                    <form id="formularioMascota" class="main__form" action="/registrar_mascota/" method="POST">
+                        {% csrf_token %}
                         <div class="main__div">
-                            <label class="div__label" for="nombreMascota">Nombre</label>
-                            <input class="div__input" type="text" id="nombreMascota">
+                            <label class="div__label" for="nombreMascota"  >Nombre</label>
+                            <input class="div__input" type="text" id="nombreMascota" name="txtNombreMascota">
                         </div>
                         
                         <div class="main__div">
                             <label class="div__label" for="especieMascota">Especie</label>
-                            <input class="div__input" type="text" id="especieMascota">
+                            <input class="div__input" type="text" id="especieMascota" name="txtEspecie">
                         </div>
                 
                         <div class="main__div">
                             <label class="div__label" for="razaMascota">Raza</label>
-                            <input class="div__input" type="text" id="razaMascota">
+                            <input class="div__input" type="text" id="razaMascota" name="txtRaza">
                         </div>
                 
                         <div class="main__div">
                             <label class="div__label" for="sexoMascota">Sexo</label>
-                            <input class="div__input" type="text" id="sexoMascota">
+                            <input class="div__input" type="text" id="sexoMascota" name="txtSexo">
                         </div>
                 
                         <div class="main__div">
                             <label class="div__label" for="colorMascota">Color</label>
-                            <input class="div__input" type="text" id="colorMascota">
+                            <input class="div__input" type="text" id="colorMascota" name="txtColor">
                         </div>
                 
                         <div class="div__container">
                             <div class="main__div">
                                 <label class="div__label inputAnos" for="edadMascota">Años</label>
-                                <input class="div__input pequeño" type="number" id="edadMascota">
+                                <input class="div__input pequeño" type="number" id="edadMascota" name="txtEdad" >
                             </div>
                     
                             <div class="main__div inputMeses">
                                 <label class="div__label" for="mesesMascota">Meses</label>
-                                <input class="div__input pequeño" type="number" id="mesesMascota">
+                                <input class="div__input pequeño" type="number" id="mesesMascota" name="txtMeses">
                             </div>
                         </div>
                         
                         <div class="div__container-dos">
                             <div class="main__div">
                                 <label class="div__label" for="pesoMascota">Peso</label>
-                                <input class="div__input pequeño" type="number" id="pesoMascota">
+                                <input class="div__input pequeño" type="number" id="pesoMascota" name="txtPeso">
                             </div>
                     
                             <div class="main__div">
                                 <label class="div__label" for="rhMascota">RH</label>
-                                <input class="div__input pequeño" type="text" id="rhMascota">
+                                <input class="div__input pequeño" type="text" id="rhMascota" name="txtRH">
                             </div>
                         </div>
                         
@@ -74,38 +75,41 @@
                 
                         <div class="main__div">
                             <label class="div__label" for="alimentacionMascota">Alimentación (marca)</label>
-                            <input class="div__input" type="text" id="alimentacionMascota">
+                            <input class="div__input" type="text" id="alimentacionMascota" name="txtAlimentacion">
                         </div>
                 
                         <div class="main__div">
                             <label class="div__label" for="cantAlimentoMascota">Cantidad Alimentos</label>
-                            <input class="div__input" type="number" id="cantAlimentoMascota">
+                            <input class="div__input" type="text" id="cantAlimentoMascota" name="txtCantidadAlimento">
                         </div>
                 
                         <div class="main__div">
                             <label class="div__label" for="frecuenciaLavadoMascota">Frecuencia Baño</label>
-                            <input class="div__input" type="number" id="frecuenciaLavadoMascota">
+                            <input class="div__input" type="text" id="frecuenciaLavadoMascota" name="txtFrecuenciaBano">
                         </div>
                 
                         <div class="main__div">
                             <label class="div__label" for="frecuenciaAlimentoMascota">Frecuencia Alimentaria</label>
-                            <input class="div__input" type="time" id="frecuenciaAlimentoMascota">
+                            <input class="div__input" type="text" id="frecuenciaAlimentoMascota" name="txtFrecuenciaAlimentacion">
                         </div>
                 
                         
                 
                         <div class="main__div">
                             <label class="div__label" for="estadoReproductivo">Estado Reproductivo</label>
-                            <select class="div__input"t name="estadoReproductivo" id="estadoReproductivo">
-                                <option value="Castrado">Castrado</option>
-                                <option value="No castrado">No castrado</option>
+                        
+                            <select class="div__input"t name="txtEstadoReproductivo" id="estadoReproductivo">
+                                {% for estado in estados  %}
+                                <option value="{{estado.idEstadoReproductivo}}">{{ estado.idEstadoReproductivo }}</option>
+                                {% endfor %}
                             </select>
+                           
                         </div>
     
                         <div class="main__div">
                             <label class="div__label" for="propietario">Propietario</label>
-                            <select class="div__input" name="propietario" id="propietario">
-                                <option value="fabio">Fabio</option>
+                            <select class="div__input" name="txtPropietario" id="propietario">
+                                <option value="{{propietario.documento}}">{{propietario.nombres}}</option>
                             </select>
                         </div>
                         <br>
@@ -113,16 +117,16 @@
                         <br><br>
                         <div class="main__div textarea1">
                             <label class="div__label" for="personalidadMascota">Personalidad</label>
-                            <textarea class="div__input text"rea name="personalidadMascota" id="personalidadMascota" cols="30" rows="10"></textarea>
+                            <textarea class="div__input text"rea name="txtPersonalidad" id="personalidadMascota" cols="30" rows="10"></textarea>
                         </div>
             
                         <div class="main__div textarea2">
                             <label class="div__label" for="antecedentes">Antecedentes</label>
-                            <textarea class="div__input text"rea name="antecedentes" id="antecedentes" cols="30" rows="10"></textarea>
+                            <textarea class="div__input text"rea name="txtAntecedentesClinicos" id="antecedentes" cols="30" rows="10"></textarea>
                         </div>
             
                         <div class="main__div-btn">
-                            <button class="div__btn-formulario" id="close-button" >Cancelar</button>
+                            <a href="{% url "listar_propietarios" %}">Cancelar</a>
                             <button class="div__btn-formulario" type="submit" onclick="return confirmarEnvio()">Guardar</button>
                         </div>
             
@@ -148,7 +152,8 @@
                 <h2>Propietario: <br> {{propietario.nombres}}</h2>
                 <div class="div__btn">
                     <button class="btn">Actualizar <img class="iconco__btn" src=" {%  static 'assets/editar.png' %}" alt=""> </button>
-                    <button class="btn">Eliminar <img class="iconco__btn" src="{%  static 'assets/eliminar.png' %}" alt=""></button>
+                    <a href="../../eliminar_propietario/{{propietario.documento}}">eliminar</a>
+                    
                 </div>
                 
             </div>
@@ -255,5 +260,5 @@
 {% endblock %}
 
 {% block scripts %}
-
+<script src="{% static 'js/vistaPropietario.js' %}"></script>
 {% endblock scripts %}
