@@ -1,6 +1,4 @@
-h1{
-    background-color: #4A3AFF;
-}
+
 .main{
     position: fixed;
     width: calc(100% - 16.25rem);
@@ -20,7 +18,7 @@ h1{
 
         .titulo{
             font-size: 1.25rem;
-            font-weight: normal;
+            font-weight: 400;
         }
 
         .mascotas{

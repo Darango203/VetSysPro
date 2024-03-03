@@ -5,74 +5,251 @@
 
 
 {% block styles %}
-<link rel="stylesheet" href="{% static 'styles/p_propietario.css' %}">
+<link rel="stylesheet" href="{% static 'styles/vistaPropietario.css' %}">
+<link rel="stylesheet" href="{%  static 'styles/sidebar.css' %}">
 {% endblock styles %}
 
 {% block content %}
-<p>Nombre: {{ propietario.nombres }}</p>
-<h1> {{ propietario.nombres }}</h1>
+{% include "layouts/partials/sidebar.html" %}
+
  <!--datos del propietario-->
- <div class="div__propietario">
-    <div class="div__header-Pro">
-        <h2>Propietario</h2>
-        <div class="div__btn">
-            <button class="btn">Actualizar <img class="iconco__btn" src=" {%  static 'assets/editar.png' %}" alt=""> </button>
-            <button class="btn">Eliminar <img class="iconco__btn" src="{%  static 'assets/eliminar.png' %}" alt=""></button>
+ <main class="main">
+    <div class="container">
+        <!--formulario para registro de la mascota-->         
+        <div class="window-background" id="window-background">
+            <div class="window-container" id="window-container">
+                <main class="main__mascota">
+                    <form id="formularioMascota" class="main__form" action="#">
+                        <div class="main__div">
+                            <label class="div__label" for="nombreMascota">Nombre</label>
+                            <input class="div__input" type="text" id="nombreMascota">
+                        </div>
+                        
+                        <div class="main__div">
+                            <label class="div__label" for="especieMascota">Especie</label>
+                            <input class="div__input" type="text" id="especieMascota">
+                        </div>
+                
+                        <div class="main__div">
+                            <label class="div__label" for="razaMascota">Raza</label>
+                            <input class="div__input" type="text" id="razaMascota">
+                        </div>
+                
+                        <div class="main__div">
+                            <label class="div__label" for="sexoMascota">Sexo</label>
+                            <input class="div__input" type="text" id="sexoMascota">
+                        </div>
+                
+                        <div class="main__div">
+                            <label class="div__label" for="colorMascota">Color</label>
+                            <input class="div__input" type="text" id="colorMascota">
+                        </div>
+                
+                        <div class="div__container">
+                            <div class="main__div">
+                                <label class="div__label inputAnos" for="edadMascota">Años</label>
+                                <input class="div__input pequeño" type="number" id="edadMascota">
+                            </div>
+                    
+                            <div class="main__div inputMeses">
+                                <label class="div__label" for="mesesMascota">Meses</label>
+                                <input class="div__input pequeño" type="number" id="mesesMascota">
+                            </div>
+                        </div>
+                        
+                        <div class="div__container-dos">
+                            <div class="main__div">
+                                <label class="div__label" for="pesoMascota">Peso</label>
+                                <input class="div__input pequeño" type="number" id="pesoMascota">
+                            </div>
+                    
+                            <div class="main__div">
+                                <label class="div__label" for="rhMascota">RH</label>
+                                <input class="div__input pequeño" type="text" id="rhMascota">
+                            </div>
+                        </div>
+                        
+                
+                        
+                
+                        <div class="main__div">
+                            <label class="div__label" for="alimentacionMascota">Alimentación (marca)</label>
+                            <input class="div__input" type="text" id="alimentacionMascota">
+                        </div>
+                
+                        <div class="main__div">
+                            <label class="div__label" for="cantAlimentoMascota">Cantidad Alimentos</label>
+                            <input class="div__input" type="number" id="cantAlimentoMascota">
+                        </div>
+                
+                        <div class="main__div">
+                            <label class="div__label" for="frecuenciaLavadoMascota">Frecuencia Baño</label>
+                            <input class="div__input" type="number" id="frecuenciaLavadoMascota">
+                        </div>
+                
+                        <div class="main__div">
+                            <label class="div__label" for="frecuenciaAlimentoMascota">Frecuencia Alimentaria</label>
+                            <input class="div__input" type="time" id="frecuenciaAlimentoMascota">
+                        </div>
+                
+                        
+                
+                        <div class="main__div">
+                            <label class="div__label" for="estadoReproductivo">Estado Reproductivo</label>
+                            <select class="div__input"t name="estadoReproductivo" id="estadoReproductivo">
+                                <option value="Castrado">Castrado</option>
+                                <option value="No castrado">No castrado</option>
+                            </select>
+                        </div>
+    
+                        <div class="main__div">
+                            <label class="div__label" for="propietario">Propietario</label>
+                            <select class="div__input" name="propietario" id="propietario">
+                                <option value="fabio">Fabio</option>
+                            </select>
+                        </div>
+                        <br>
+                        <br>
+                        <br><br>
+                        <div class="main__div textarea1">
+                            <label class="div__label" for="personalidadMascota">Personalidad</label>
+                            <textarea class="div__input text"rea name="personalidadMascota" id="personalidadMascota" cols="30" rows="10"></textarea>
+                        </div>
+            
+                        <div class="main__div textarea2">
+                            <label class="div__label" for="antecedentes">Antecedentes</label>
+                            <textarea class="div__input text"rea name="antecedentes" id="antecedentes" cols="30" rows="10"></textarea>
+                        </div>
+            
+                        <div class="main__div-btn">
+                            <button class="div__btn-formulario" id="close-button" >Cancelar</button>
+                            <button class="div__btn-formulario" type="submit" onclick="return confirmarEnvio()">Guardar</button>
+                        </div>
+            
+                    </form>
+                </main>
+            </div>
+        </div>
+        
+    
+        <!--ventana modal de confirmacion-->
+        <div id="modal" class="modal">
+            <div class="modal-content">
+              <p>¿Estás seguro de que quieres enviar el formulario?</p>
+              <br>
+              <button class="div__btn-formulario confirmar" onclick="enviarFormulario()">Sí, enviar</button>
+              <button class="div__btn-formulario confirmar" onclick="cerrarModal()">Cancelar</button>
+            </div>
+        </div>
+
+        <!--datos del propietario-->
+        <div class="div__propietario">
+            <div class="div__header-Pro">
+                <h2>Propietario: <br> {{propietario.nombres}}</h2>
+                <div class="div__btn">
+                    <button class="btn">Actualizar <img class="iconco__btn" src=" {%  static 'assets/editar.png' %}" alt=""> </button>
+                    <button class="btn">Eliminar <img class="iconco__btn" src="{%  static 'assets/eliminar.png' %}" alt=""></button>
+                </div>
+                
+            </div>
+            <hr class="Separador">
+            <div class="div__datos-Pro">
+                <div class="tabla__propietario">
+                    <h4 class="titulo">Datos propietario</h4>
+                    <hr class="separador">
+                    <table>
+                        <tbody>
+                            
+                            <tr>
+                                <th>Documento</th>
+                                <td>{{propietario.documento}}</td>
+                            </tr>
+                            <tr>
+                                <th>Nombres</th>
+                                <td>{{propietario.nombres}}</td>
+                            </tr>
+                            
+                            <tr>
+                                <th>Apellidos</th>
+                                <td>{{propietario.apellidos}}</td>
+                            </tr>
+                            <tr>
+                                <th>Direccion</th>
+                                <td>{{propietario.direccion}}</td>
+                            </tr>
+                            <tr>
+                                <th>Email</th>
+                                <td>a{{propietario.email}}</td>
+                            </tr>
+                            <tr>
+                                <th>telefono</th>
+                                <td>{{propietario.telefono}}</td>
+                            </tr>
+                            <div>
+                    </table>
+                    <br>
+                    <h4 class="titulo">Datos Emergencia</h4>
+                    <hr class="separador">
+                    <table>
+                                                       
+                            <tr>
+                                <th>Nombre completo</th>
+                                <td>{{propietario.nombreEmer}}</td>
+                            </tr>
+                            <tr>
+                                <th>Celular </th>
+                                <td>{{propietario.telefonoEmer}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!--Mascotas asociadas-->
+        <div class="table">
+            <div class="cont__btn-registro">
+                <button class="div__btn-formulario registro" id="open-button">Registrar mascota</button>
+            </div>
+            <section class="table__header">
+                <h4 class="titulo mascotas">Mascotas asociadas</h4>
+                <div class="input_group">
+                    <input type="search" placeholder="Buscar">
+                    <img src="{% static 'assets/bx-search.svg' %}" alt="">
+                </div>
+            </section>
+            <section class="table__body">
+                <table>
+                    <thead>
+                        <tr>
+                            <th> Nombre </th>
+                            <th> Especie </th>
+                            <th> Raza </th>
+                            <th> Sexo </th>
+                            <th> Acciones </th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        {% for mascota in mascotas %}
+                            <tr>
+                                <td>{{ mascota.nombre }}</td>
+                                <td>{{ mascota.especie }}</td>
+                                <td>{{ mascota.raza }}</td>
+                                <td>{{ mascota.sexo }}</td>
+                                <td>
+                                    <a href="/Perfil_propietario/{{ propietario.documento }}/">
+                                        <button class="div__btn listar">Ver perfil</button>
+                                    </a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </section>
         </div>
     </div>
-    <hr class="Separador">
-    <div class="div__datos-Pro">
-        <div class="tabla__propietario">
-            <h4 class="titulo">Datos propietario</h4>
-            <hr class="separador">
-            <table>
-                <tbody>
-                    
-                    <tr>
-                        <th>Documento</th>
-                        <td>1014738302</td>
-                    </tr>
-                    <tr>
-                        <th>Nombres</th>
-                        <td>{{ propietario.nombres }}</td>
-                    </tr>
-                    
-                    <tr>
-                        <th>Apellidos</th>
-                        <td>Arango Perdomo</td>
-                    </tr>
-                    <tr>
-                        <th>Direccion</th>
-                        <td>Calle 81 f sur # 18 g 09</td>
-                    </tr>
-                    <tr>
-                        <th>Email</th>
-                        <td>arangoperdamaris18@gmail.com</td>
-                    </tr>
-                    <tr>
-                        <th>Ceular</th>
-                        <td>3153346639</td>
-                    </tr>
-                    <div>
-            </table>
-            <br>
-            <h4 class="titulo">Datos Emergencia</h4>
-            <hr class="separador">
-            <table>
-                                               
-                    <tr>
-                        <th>Nombre completo</th>
-                        <td>Cecilia Perdomo</td>
-                    </tr>
-                    <tr>
-                        <th>Celular </th>
-                        <td>3203843894</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-</div>
+</main>
 
 
 {% endblock %}
