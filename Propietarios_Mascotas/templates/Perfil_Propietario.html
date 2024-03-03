@@ -1,0 +1,82 @@
+{% extends "layouts/base.html" %}
+{% load static %}
+
+{% block title %}VetSysPro: {{ propietario.nombres }}{% endblock %}
+
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'styles/p_propietario.css' %}">
+{% endblock styles %}
+
+{% block content %}
+<p>Nombre: {{ propietario.nombres }}</p>
+<h1> {{ propietario.nombres }}</h1>
+ <!--datos del propietario-->
+ <div class="div__propietario">
+    <div class="div__header-Pro">
+        <h2>Propietario</h2>
+        <div class="div__btn">
+            <button class="btn">Actualizar <img class="iconco__btn" src=" {%  static 'assets/editar.png' %}" alt=""> </button>
+            <button class="btn">Eliminar <img class="iconco__btn" src="{%  static 'assets/eliminar.png' %}" alt=""></button>
+        </div>
+    </div>
+    <hr class="Separador">
+    <div class="div__datos-Pro">
+        <div class="tabla__propietario">
+            <h4 class="titulo">Datos propietario</h4>
+            <hr class="separador">
+            <table>
+                <tbody>
+                    
+                    <tr>
+                        <th>Documento</th>
+                        <td>1014738302</td>
+                    </tr>
+                    <tr>
+                        <th>Nombres</th>
+                        <td>{{ propietario.nombres }}</td>
+                    </tr>
+                    
+                    <tr>
+                        <th>Apellidos</th>
+                        <td>Arango Perdomo</td>
+                    </tr>
+                    <tr>
+                        <th>Direccion</th>
+                        <td>Calle 81 f sur # 18 g 09</td>
+                    </tr>
+                    <tr>
+                        <th>Email</th>
+                        <td>arangoperdamaris18@gmail.com</td>
+                    </tr>
+                    <tr>
+                        <th>Ceular</th>
+                        <td>3153346639</td>
+                    </tr>
+                    <div>
+            </table>
+            <br>
+            <h4 class="titulo">Datos Emergencia</h4>
+            <hr class="separador">
+            <table>
+                                               
+                    <tr>
+                        <th>Nombre completo</th>
+                        <td>Cecilia Perdomo</td>
+                    </tr>
+                    <tr>
+                        <th>Celular </th>
+                        <td>3203843894</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
+
+{% block scripts %}
+
+{% endblock scripts %}

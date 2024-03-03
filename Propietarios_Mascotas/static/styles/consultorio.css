@@ -207,30 +207,174 @@
             transition: transform 1s cubic-bezier(0, -0.42, 1, -0.41);
             transform: translateY(60vh);
         }
-        
-        
-        /* Estilos para la ventana modal de confirmacion*/
-        .modal {
-            display: none; /* Oculta la ventana modal por defecto */
-            position: fixed; 
-            z-index: 1; 
-            left: 0;
+
+
+        /*Estilos para la tabla*/
+
+        .body__table{
+            display: flex;
+            background: url('static/assets/fondoTabla.jpeg') center / cover ;
+            justify-content: center;
+            align-items: center;
+        }
+
+        div.table{
+            height: 90%;
+            width: 98%;
+            backdrop-filter: blur(.4375rem);
+            border-radius: .8rem;
+            overflow: hidden;
+        }
+
+        .table__header{
+            margin-top: .9375rem;
+            width: 100%;
+            height: 10%;
+            background-color: #4A3AFF;
+            padding: .8rem 1rem;
+            border-radius: .9375rem .9375rem 0rem 0rem;
+        }
+
+        .table__header .input_group img{
+            width: 1.2rem;
+            height: 1.2rem;
+        }
+
+        .table__header .input_group input{
+            width: 100%;
+            padding:0 .5rem 0 .3rem;
+            background-color: transparent;
+            border: none;
+            outline: none;
+        }
+
+        .table__header .input_group{
+            width: 35%;
+            height: 100%;
+            background-color: #e4e2fa;
+            padding: 0 .8rem;
+            border-radius: 2rem;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            transition: .2s;
+        }
+
+        .table__header .input_group:hover{
+            width: 45%;
+            background-color: #ffff;
+            box-shadow: 0 .1rem .4rem #0002;
+        }
+
+
+        .table__body{
+            width: 100%;
+            height: 100%;
+            max-height: calc(89% - 1.6rem);
+            background-color: #ffff;
+            border-radius:0rem 0rem .6rem .6rem;
+            overflow: auto;
+            overflow: overlay;
+        }
+
+        .table__body::-webkit-scrollbar{
+            width: 0.5rem;
+            height: 0.5rem;
+        }
+
+        .table__body::-webkit-scrollbar-thumb{
+            border-radius: .12rem;
+            background-color: #4A3AFF;
+            visibility: hidden;
+        }
+
+        .table__body:hover::-webkit-scrollbar-thumb{
+            visibility: visible;
+        }
+
+        table {
+            width: 100%;
+            
+        }
+
+        td img {
+            width:  2.25rem;
+            height: 2.25rem;
+            margin-right: .5rem;
+            border-radius: 50%;
+
+            vertical-align: middle;
+        }
+
+        table, th, td {
+            border-collapse: collapse;
+            padding: 1rem;
+            text-align: left;
+        }
+
+        thead th {
+            position: sticky;
             top: 0;
-            width: 100%; 
-            height: 100%; 
-            overflow: auto; 
-            background-color: rgba(0,0,0,0.5);
-          }
-          
-          .modal-content {
-            background-color: #fefefe;
-            margin: 15% auto;
-            padding: 1.25rem;
-            border: .0625rem solid #888;
-            border-radius: .625rem;
-            width: 30%;
-            text-align: center;
-          }
-          
-    }
+            left: 0;
+            background-color: #4a3aff;
+            color: #ffff;
+        }
+
+        tbody tr:nth-child(even){
+            background-color: #0000000b;
+        }
+
+        tbody tr {
+            --delay: .1s;
+            transition: .5s ease-in-out var(--delay),  background-color 0s;
+        }
+
+        tbody tr.hide{
+            opacity: 0;
+            transform: translatex(100%);
+        }
+
+        tbody tr:hover{
+            background-color: #e4e2fa !important;
+        }
+
+        tbody tr td,
+        tbody tr td p,
+        tbody tr td img{
+            transition: .2s ease-in-out;
+        }
+
+        tbody tr.hide td,
+        tbody tr.hide td p{
+            padding: 0;
+            font: 0 / 0 Poppins;
+            transition: .2s ease-in-out .5s;
+        }
+
+        tbody tr.hide td img{
+            width: 0;
+            height: 0;
+            transition: .2s ease-in-out .5s;
+        }
+
+
+        @media (max-width: 62.5rem){
+            td:not(:first-of-type){
+                min-width: 12.1rem;
+            }
+        }
+
+        .listar{
+            display: inline-block;
+            width: 5.625rem;
+            height: 1.875rem;
+        }
+
+
+        
+        
+    }   
+    
 }

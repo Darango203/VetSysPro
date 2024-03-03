@@ -12,12 +12,12 @@
     {% include "layouts/partials/sidebar.html" %}
     <main class="main">
         <div class="container">
+
             <div class="div__head">
                 <h1>Consultorio</h1>
                 <button class="div__btn" id="open-button">Registrar propietario</button>
+
             </div>
-            
-            
 
             <div class="window-background" id="window-background">
                 <div class="window-container" id="window-container">
@@ -78,27 +78,56 @@
                             
                     
                             <div class="main__div-btn">
-                                <button class="div__btn" id="close-button" >Cancelar</button>
+                                
+                                <a class="div__btn" id="close-button" href="{% url "listar_propietarios" %}">Cancelar</a>
                                 <input type="submit" value="guardar">
                             </div>
-                
                         </form>
                     </main>
                 </div>
             </div>
-        
-            <!--ventana modal de confirmacion-->
-            <div id="modal" class="modal">
-                <div class="modal-content">
-                  <p>¿Estás seguro de que quieres enviar el formulario?</p>
-                  <br>
-                  <button class="div__btn confirmar" onclick="enviarFormulario()">Sí, enviar</button>
-                  <button class="div__btn confirmar" onclick="cerrarModal()">Cancelar</button>
-                </div>
-            </div>
-        
-            
-            
+
+            <div class="table">
+                <section class="table__header">
+                    <div class="input_group">
+                        <input type="search" placeholder="Buscar">
+                        <img src="{% static 'assets/bx-search.svg' %}" alt="">
+                    </div>
+                </section>
+                <section class="table__body">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th> Documento </th>
+                                <th> Nombres </th>
+                                <th> Apellidos </th>
+                                <th> Direccion </th>
+                                <th> Email </th>
+                                <th> Celular </th>
+                                <th> Acciones </th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            {% for propietario in propietarios %}
+                            <tr>
+                                <td>{{ propietario.documento }}</td>
+                                <td>{{ propietario.nombres }}</td>
+                                <td>{{ propietario.apellidos }}</td>
+                                <td>{{ propietario.direccion }}</td>
+                                <td>{{ propietario.email }}</td>
+                                <td>{{ propietario.telefono }}</td>
+                                <td>
+                                    <a href="/Perfil_propietario/{{ propietario.documento }}/">
+                                        <button class="div__btn listar">Ver perfil</button>
+                                    </a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </section>
+            </div>  
         </div>
     </main>
 {% endblock %}
