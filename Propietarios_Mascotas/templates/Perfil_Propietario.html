@@ -1,7 +1,7 @@
 {% extends "layouts/base.html" %}
 {% load static %}
 
-{% block title %}VetSysPro: {{ propietario.nombres }}{% endblock %}
+{% block title %}VetSysPro{{ propietario.nombres }}{% endblock %}
 
 
 {% block styles %}
@@ -126,7 +126,7 @@
                         </div>
             
                         <div class="main__div-btn">
-                            <a href="{% url "listar_propietarios" %}">Cancelar</a>
+                            <a class="div__btn-formulario" href="{% url "listar_propietarios" %}">Cancelar</a>
                             <button class="div__btn-formulario" type="submit" onclick="return confirmarEnvio()">Guardar</button>
                         </div>
             
@@ -149,10 +149,10 @@
         <!--datos del propietario-->
         <div class="div__propietario">
             <div class="div__header-Pro">
-                <h2>Propietario: <br> {{propietario.nombres}}</h2>
+                <h2>Propietario <br> {{propietario.nombres}}</h2>
                 <div class="div__btn">
-                    <button class="btn">Actualizar <img class="iconco__btn" src=" {%  static 'assets/editar.png' %}" alt=""> </button>
-                    <a href="../../eliminar_propietario/{{propietario.documento}}">eliminar</a>
+                    <button class="btn">Actualizar </button>
+                    <a class="btn" href="../../eliminar_propietario/{{propietario.documento}}">Eliminar</a>
                     
                 </div>
                 
@@ -220,7 +220,6 @@
                 <h4 class="titulo mascotas">Mascotas asociadas</h4>
                 <div class="input_group">
                     <input type="search" placeholder="Buscar">
-                    <img src="{% static 'assets/bx-search.svg' %}" alt="">
                 </div>
             </section>
             <section class="table__body">
@@ -243,8 +242,8 @@
                                 <td>{{ mascota.raza }}</td>
                                 <td>{{ mascota.sexo }}</td>
                                 <td>
-                                    <a href="/Perfil_propietario/{{ propietario.documento }}/">
-                                        <button class="div__btn listar">Ver perfil</button>
+                                    <a id="div__btn" href="/Perfil_propietario/{{ propietario.documento }}/">
+                                        Ver perfil
                                     </a>
                                 </td>
                             </tr>

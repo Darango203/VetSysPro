@@ -1,3 +1,6 @@
+a{
+    text-decoration: none !important;
+}
 .main{
     position: fixed;
     width: calc(100% - 260px);

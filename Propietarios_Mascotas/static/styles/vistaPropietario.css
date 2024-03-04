@@ -1,3 +1,17 @@
+#div__btn{
+    padding: .3125rem;
+    border-radius: .3125rem;
+    border: .0625rem #cbcbcb solid;
+    width: 4.6875rem;
+    height: 2.1875rem;
+    background-color: #4A3AFF;
+    color: #ffff;
+    cursor: pointer;
+}
+
+a{
+    text-decoration: none;
+}
 
 .main{
     position: fixed;
@@ -34,7 +48,7 @@
             padding: .3125rem;
             border-radius: .3125rem;
             border: .0625rem #cbcbcb solid;
-            width: 6.5625rem;
+            width: 84px;
             height: 2.1875rem;
             background-color: #4A3AFF;
             color: #ffff;
